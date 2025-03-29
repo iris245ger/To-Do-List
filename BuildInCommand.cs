@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using static To_Do_List.Program;
+using static To_Do_List.TaskManager;
 
 namespace To_Do_List
 {
@@ -10,7 +11,7 @@ namespace To_Do_List
         {
             if (newTask != null)
             {
-                saved.tasks.Add(new Program.Task()
+                saved.tasks.Add(new Task()
                 {
                     Body = newTask,
                     IsCompleted = false
@@ -40,7 +41,7 @@ namespace To_Do_List
 
         public static void CompleteTask(this TaskManager saved, int Index)
         {
-            saved.tasks[BuildInCommand.ToInternalId(Index)].IsCompleted = true;
+            saved.tasks[ToInternalId(Index)].IsCompleted = true;
             Console.WriteLine($"Task# {Index} successfully completed!");
         }
 
@@ -59,7 +60,7 @@ namespace To_Do_List
             }
         }
 
-        public static string TaskParse(string input)
+        public static string? TaskParse(string input)
         {
             if (input.Split(' ', 2).Length > 1)
             {
