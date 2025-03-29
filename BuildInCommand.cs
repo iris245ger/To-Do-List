@@ -60,7 +60,7 @@ namespace To_Do_List
             }
         }
 
-        public static string? TaskParse(string input)
+        public static string TaskParse(string input)
         {
             if (input.Split(' ', 2).Length > 1)
             {
